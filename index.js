@@ -37,10 +37,6 @@ closeButton.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-function closeModal() {
-  modal.style.display = "none";
-}
-
 orderFormModal.addEventListener("submit", (event) => {
   event.preventDefault();
   orderDetailsContainer.style.display = "block";
