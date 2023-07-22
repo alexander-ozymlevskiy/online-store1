@@ -9,7 +9,11 @@ const closeButton = document.querySelector(".close-button");
 const orderDetailsContainer = document.getElementById("orderDetails");
 
 const listOfGoods = {
-  Оздоблювальні: ["Гіпсокартонні системи", "Будівельна хімія", "Клейові суміші"],
+  Оздоблювальні: [
+    "Гіпсокартонні системи",
+    "Будівельна хімія",
+    "Клейові суміші",
+  ],
   Загальнобудівельні: ["Сітка металева", "Цемент, пісок, щебінь", "Газоблок"],
   Покрівля: ["Бітумна черепиця", "Металочерепиця", "Водостічні системи"],
 };
@@ -17,7 +21,9 @@ const listOfGoods = {
 categoriesList.addEventListener("click", (event) => {
   if (event.target.matches(".categories_link")) {
     const category = event.target.innerText;
-    productsContainer.innerHTML = listOfGoods[category].map((product) => `<p>${product}</p>`).join("");
+    productsContainer.innerHTML = listOfGoods[category]
+      .map((product) => `<p>${product}</p>`)
+      .join("");
   }
 });
 
@@ -37,23 +43,34 @@ closeButton.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-orderFormModal.addEventListener("submit", (event) => {
-  event.preventDefault();
-  orderDetailsContainer.style.display = "block";
+const getFormData = () => {
+  const formData = new FormData(document.getElementById("orderFormModal"));
+  const entries = formData.entries();
+  const data = Object.fromEntries(entries);
 
-  const orderDetails = {
-    product: productName.textContent,
-    fullName: document.getElementById("fullName").value,
-    city: document.getElementById("city").value,
-    novaPoshta: document.getElementById("novaPoshta").value,
-    paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
-    quantity: document.getElementById("quantity").value,
-    comment: document.getElementById("comment").value,
-  };
 
+  if (!data.fullName || !data.city || !data.novaPoshta || !data.paymentMethod || !data.quantity) {
+    alert("Будь ласка, заповніть усі обов'язкові поля.");
+    return;
+  }
+
+  if (isNaN(data.quantity) || +data.quantity < 1) {
+    alert("Будь ласка, введіть коректне значення для кількості продукції.");
+    return;
+  }
+
+  displayOrderDetails(data);
+};
+
+document.getElementById("orderFormModal").addEventListener("submit", (e) => {
+  e.preventDefault();
+  getFormData();
+});
+
+const displayOrderDetails = (orderDetails) => {
   orderDetailsContainer.innerHTML = `
     <h2>Інформація про замовлення</h2>
-    <p><strong>Товар:</strong> ${orderDetails.product}</p>
+    <p><strong>Товар:</strong> ${productName.textContent}</p>
     <p><strong>ПІБ покупця:</strong> ${orderDetails.fullName}</p>
     <p><strong>Місто:</strong> ${orderDetails.city}</p>
     <p><strong>Склад Нової пошти:</strong> ${orderDetails.novaPoshta}</p>
@@ -62,8 +79,9 @@ orderFormModal.addEventListener("submit", (event) => {
     <p><strong>Коментар до замовлення:</strong> ${orderDetails.comment}</p>
   `;
 
+  orderDetailsContainer.style.display = "block";
   modal.style.display = "none";
   productsContainer.innerHTML = "";
   productInfo.style.display = "none";
   buyButton.style.display = "none";
-});
+};

@@ -39,9 +39,9 @@
           <span class="close-button">&times;</span>
           <form id="orderFormModal">
             <label for="fullName">ПІБ покупця:</label>
-            <input type="text" name="fullName" id="fullName" required />
+            <input type="text" name="fullName" id="fullName" />
             <label for="city">Місто:</label>
-            <select name="city" id="city" required>
+            <select name="city" id="city">
               <option value="">Виберіть місто</option>
               <option value="Київ">Київ</option>
               <option value="Суми">Суми</option>
@@ -54,7 +54,6 @@
               type="text"
               name="novaPoshta"
               id="novaPoshta"
-              required
             />
             <label>Спосіб оплати:</label>
             <label for="paymentMethod1">Післяплати</label>
@@ -63,7 +62,6 @@
             name="paymentMethod"
             id="paymentMethod1"
             value="Післяплати"
-            required
           />
             <label for="paymentMethod2">Оплата банківською карткою</label>
             <input
@@ -71,15 +69,12 @@
             name="paymentMethod"
             id="paymentMethod2"
             value="Оплата банківською карткою"
-            required
           />
             <label for="quantity">Кількість продукції:</label>
             <input
               type="number"
               name="quantity"
               id="quantity"
-              min="1"
-              required
             />
             <label for="comment">Коментар до замовлення:</label>
             <textarea name="comment" id="comment"></textarea>
