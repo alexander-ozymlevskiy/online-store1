@@ -161,7 +161,7 @@ function showMyOrders() {
 }
 // Функція для отримання всіх замовлень з локального сховища
 function getAllOrders() {
-  return JSON.parse(localStorage.getItem("orders"));
+  return JSON.parse(localStorage.getItem("orders")) || [];
 }
 
 // Функція для збереження замовлення до локального сховища
