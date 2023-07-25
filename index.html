@@ -17,6 +17,9 @@
     <div class="heading">
       <ul>
         <li>Категорії</li>
+        <li>
+          <button class="orders-btn" id="ordersButton">Мої замовлення</button>
+        </li>
         <li>Товари</li>
         <li>Інформація про товар</li>
       </ul>
@@ -50,40 +53,32 @@
               <option value="Львів">Львів</option>
             </select>
             <label for="novaPoshta">Склад Нової пошти:</label>
-            <input
-              type="text"
-              name="novaPoshta"
-              id="novaPoshta"
-            />
+            <input type="text" name="novaPoshta" id="novaPoshta" />
             <label>Спосіб оплати:</label>
             <label for="paymentMethod1">Післяплати</label>
             <input
-            type="radio"
-            name="paymentMethod"
-            id="paymentMethod1"
-            value="Післяплати"
-          />
+              type="radio"
+              name="paymentMethod"
+              id="paymentMethod1"
+              value="Післяплати"
+            />
             <label for="paymentMethod2">Оплата банківською карткою</label>
             <input
-            type="radio"
-            name="paymentMethod"
-            id="paymentMethod2"
-            value="Оплата банківською карткою"
-          />
-            <label for="quantity">Кількість продукції:</label>
-            <input
-              type="number"
-              name="quantity"
-              id="quantity"
+              type="radio"
+              name="paymentMethod"
+              id="paymentMethod2"
+              value="Оплата банківською карткою"
             />
+            <label for="quantity">Кількість продукції:</label>
+            <input type="number" name="quantity" id="quantity" />
             <label for="comment">Коментар до замовлення:</label>
             <textarea name="comment" id="comment"></textarea>
             <button type="submit">Оформити замовлення</button>
           </form>
+        </div>
       </div>
     </div>
-    <div id="orderDetails" class="order-details" style="display: none;">
-      </div>
+    <div id="orderDetails" class="order-details" style="display: none"></div>
     <script src="index.js"></script>
   </body>
 </html>

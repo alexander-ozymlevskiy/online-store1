@@ -169,7 +169,58 @@ body {
   }
 
   .order-details {
-    background-color: #ffffff;
     width: 400px;
-    padding: 10px;
+
+    padding-left: 50px;
   }
+
+  .orders-btn {
+    font-size: 30px;
+    padding: 0 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ccc;
+  }
+
+  .orders-btn:hover {
+    background-color: #bababa;
+  }
+
+  .order-card {
+    display: flex;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s;
+  }
+  
+  .order-card p {
+    margin: 5px 0;
+  }
+
+  .order-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .delete-order-btn {
+    background-color: #ff4136;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-order-btn:hover {
+    background-color: #e50000;
+  }
+  
+  
+  
+  
+  
+  
+  
